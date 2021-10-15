@@ -9,9 +9,12 @@ class CDataBase:
         self.bd = "lol"
         self.con = mysql.connector.connect(host=self.host, user=self.user, password=self.password, database=self.bd)
         self.cursor = self.con.cursor()
+        self.Rlist = []
 
     def Question(self, sql, Sresult):
-        Rlist = []
+        if len(self.Rlist) > 0:
+            Sresult.delete(0, len(self.Rlist))
+        self.Rlist.clear()
 
         Ssql = "SELECT name FROM champ WHERE name LIKE %s"
         sql = '%' + sql + '%'
@@ -20,18 +23,22 @@ class CDataBase:
         result = self.cursor.fetchall()
 
         for x in result:
-            Rlist.append(x)
+            self.Rlist.append(x)
 
-        print(Rlist)
-        self.ChangeResult(Rlist, Sresult)
+        print(self.Rlist)
+        self.ChangeResult(self.Rlist, Sresult)
     
     def ChangeResult(self, Rlist, Sresult):
         for x in range(len(Rlist)):
             Sresult.insert(x, Rlist[x])
 
     def SelectChamp(self, Sresult):
-        print(Sresult.get(Sresult.curselection()))
+        ChampName = Sresult.get(Sresult.curselection())
 
         new_window = Tk()
-        button = Button(new_window)
-        button.pack()
+
+        new_window.geometry("600x600")
+
+        Name = Label(new_window,
+                    text=ChampName)
+        Name.pack()
