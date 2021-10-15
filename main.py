@@ -14,8 +14,13 @@ BSearch = Button(window,
                 command=lambda:ChampDataBase.Question(Search.get(), SResult))
 BSearch.pack()
 
-SResult = Label(window,
+SResult = Listbox(window,
                 )
 SResult.pack()
+
+BSelect = Button(window,
+            text="Select",
+            command=lambda:ChampDataBase.SelectChamp(SResult))
+BSelect.pack()
 
 window.mainloop()

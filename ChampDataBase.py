@@ -14,15 +14,24 @@ class CDataBase:
         Rlist = []
 
         Ssql = "SELECT name FROM champ WHERE name LIKE %s"
-        sql = sql + '%'
+        sql = '%' + sql + '%'
         search = (sql,)
         self.cursor.execute(Ssql, search)
         result = self.cursor.fetchall()
 
         for x in result:
             Rlist.append(x)
+
         print(Rlist)
         self.ChangeResult(Rlist, Sresult)
     
     def ChangeResult(self, Rlist, Sresult):
-        Sresult.config(text=Rlist)
+        for x in range(len(Rlist)):
+            Sresult.insert(x, Rlist[x])
+
+    def SelectChamp(self, Sresult):
+        print(Sresult.get(Sresult.curselection()))
+
+        new_window = Tk()
+        button = Button(new_window)
+        button.pack()
