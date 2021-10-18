@@ -1,5 +1,6 @@
 from tkinter import *
 from ChampDataBase import CDataBase
+import requests
 
 ChampDataBase = CDataBase()
 
