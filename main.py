@@ -1,6 +1,5 @@
 from tkinter import *
 from ChampDataBase import CDataBase
-import requests
 
 ChampDataBase = CDataBase()
 
@@ -21,7 +20,7 @@ SResult.pack()
 
 BSelect = Button(window,
             text="Select",
-            command=lambda:ChampDataBase.SelectChamp(SResult))
+            command=lambda:ChampDataBase.NewWindow(SResult))
 BSelect.pack()
 
 window.mainloop()

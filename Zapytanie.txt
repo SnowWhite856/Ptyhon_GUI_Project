@@ -114,6 +114,7 @@ INSERT INTO champ (Name, Role, Rase) VALUES
 ('Sivir', 'ADC', 'Human'),
 ('Skarner', 'JG', 'Brackern'),
 ('Sona', 'SUP', 'Human'),
+('Soraka', 'SUP', 'Celestial'),
 ('Swain', 'SUP', 'Human'),
 ('Sylas', 'MID', 'Human'),
 ('Syndra', 'MID', 'Human'),

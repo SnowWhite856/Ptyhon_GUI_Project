@@ -1,7 +1,14 @@
 import requests
+from tkinter import *
 
-response = requests.get("http://ddragon.leagueoflegends.com/cdn/11.20.1/data/en_US/champion/Aatrox.json")
+response = requests.get("https://randomfox.ca/images/87.jpg")
 
-champ = response.json()
 
-print(champ['data']['Aatrox']['lore'])
+w = Tk()
+
+photo = PhotoImage(file=response.content)
+
+label = Label(w, image=photo)
+label.pack()
+
+w.mainloop()
