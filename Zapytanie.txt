@@ -139,7 +139,7 @@ INSERT INTO champ (Name, Role, Rase) VALUES
 ('Vi', 'JG', 'Human'),
 ('Viego', 'JG', 'Wraith'),
 ('Viktor', 'MID', 'Human'),
-('Volivear', 'TOP/JG', 'Spirit God'),
+('Volibear', 'TOP/JG', 'Spirit God'),
 ('Warwick', 'JG', 'Human'),
 ('Wukong', 'TOP', 'Vastaya'),
 ('Xayah', 'ADC', 'Vastaya'),
