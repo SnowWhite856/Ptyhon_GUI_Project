@@ -1,4 +1,5 @@
 from tkinter import *
+from typing import Collection
 import mysql.connector
 import requests
 from tkinter import ttk
@@ -55,16 +56,16 @@ class CDataBase:
 
         return champ['data'][ChampName[s]]['lore']
     
-    def ChampImage(self, ChampName):
-        s = slice(2, -3)
-        ChampName = str(ChampName)
+    # def ChampImage(self, ChampName):
+    #     s = slice(2, -3)
+    #     ChampName = str(ChampName)
 
-        response = requests.get("http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + ChampName[s] + "_0.jpg")
-        champ = response.json()
+    #     response = requests.get("http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + ChampName[s] + "_0.jpg")
+    #     champ = response.json()
         
-        photo = PhotoImage(file=champ)
+    #     photo = PhotoImage(file=champ)
 
-        return photo
+    #     return photo
 
     def NewWindow(self, Sresult):
         ChampName = Sresult.get(Sresult.curselection())
@@ -73,21 +74,21 @@ class CDataBase:
 
         new_window.geometry("600x600")
 
-        Image = Label(new_window,
-                    image=self.ChampImage(ChampName))
-        Image.pack()
+        # Image = Label(new_window,
+        #             image=self.ChampImage(ChampName))
+        # Image.pack()
 
         Name = Label(new_window,
                     text=ChampName)
-        Name.pack()
+        Name.grid(row=0, column=1)
 
         Lane = Label(new_window,
                     text=self.SelectChampL(ChampName))
-        Lane.pack()
+        Lane.grid(row=0, column=2, padx=10, pady=10)
 
         Rase = Label(new_window,
                     text=self.SelectChampR(ChampName))
-        Rase.pack()
+        Rase.grid(row=0, column=3, padx=10, pady=10)
 
         Lore = Label(new_window,
                     text=self.ChampLore(ChampName),
@@ -95,4 +96,4 @@ class CDataBase:
                     pady=10,
                     wraplength=550,
                     justify="center")
-        Lore.pack()
+        Lore.grid(row=1, column=0, columnspan=3, padx=10, pady=10)
